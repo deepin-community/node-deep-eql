@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export NODE_PATH=/usr/lib/nodejs
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	dh_auto_build
+	browserify-lite ./index.js --standalone deepEqual --outfile deep-eql.tmp.js
+	uglifyjs deep-eql.tmp.js  -o deep-eql.js

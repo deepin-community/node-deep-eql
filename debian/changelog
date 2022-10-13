@@ -1,0 +1,78 @@
+node-deep-eql (4.0.0-5) unstable; urgency=medium
+
+  * Team upload
+  * Fix GitHub tags regex
+  * Update standards version to 4.6.0, no changes needed.
+  * Fix filenamemangle
+  * Drop dependency to nodejs
+
+ -- Yadd <yadd@debian.org>  Tue, 09 Nov 2021 16:52:07 +0100
+
+node-deep-eql (4.0.0-4) unstable; urgency=medium
+
+  * Team upload
+  * Replace deprecated no-uglify by uglifyjs (Closes: #979941)
+
+ -- Xavier Guimard <yadd@debian.org>  Tue, 12 Jan 2021 17:44:29 +0100
+
+node-deep-eql (4.0.0-3) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Update standards version to 4.4.1, no changes needed.
+  * Set debhelper-compat version in Build-Depends.
+  * Remove obsolete fields Name, Contact from debian/upstream/metadata.
+
+  [ Xavier Guimard ]
+  * Set upstream metadata fields: Bug-Submit.
+  * Update standards version to 4.5.0, no changes needed.
+  * Bump debhelper compatibility level to 13
+  * Declare compliance with policy 4.5.1
+  * Add "Rules-Requires-Root: no"
+  * Modernize debian/watch
+  * Use dh-sequence-nodejs
+  * Fix build (Closes: #978373)
+
+ -- Xavier Guimard <yadd@debian.org>  Sun, 27 Dec 2020 07:26:33 +0100
+
+node-deep-eql (4.0.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Switch install to pkg-js-tools
+
+ -- Xavier Guimard <yadd@debian.org>  Sat, 03 Aug 2019 15:42:55 +0200
+
+node-deep-eql (4.0.0-1) unstable; urgency=medium
+
+  * Team upload
+  * Bump debhelper compatibility level to 12
+  * Declare compliance with policy 4.4.0
+  * Add debian/gbp.conf
+  * Update VCS fields to salsa
+  * Add upstream/metadata
+  * New upstream version 4.0.0
+  * Add debian/clean
+  * Enable upstream test using pkg-js-tools
+  * Update debian/copyright
+
+ -- Xavier Guimard <yadd@debian.org>  Mon, 08 Jul 2019 21:15:40 +0200
+
+node-deep-eql (3.0.1-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Sruthi Chandran <srud@disroot.org>  Wed, 25 Oct 2017 23:41:49 +0530
+
+node-deep-eql (2.0.0+dfsg-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+
+ -- Sruthi Chandran <srud@disroot.org>  Sat, 05 Nov 2016 12:52:45 +0530
+
+node-deep-eql (1.0.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #840449)
+
+ -- Syam G Krishnan <sgk@riseup.net>  Tue, 11 Oct 2016 22:43:49 +0530

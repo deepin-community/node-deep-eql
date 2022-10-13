@@ -1,0 +1,35 @@
+Source: node-deep-eql
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Syam G Krishnan <sgk@riseup.net>,
+           Sruthi Chandran <srud@disroot.org>
+Section: javascript
+Priority: optional
+Testsuite: autopkgtest-pkg-nodejs
+Build-Depends:
+ debhelper-compat (= 13)
+ , dh-sequence-nodejs
+ , mocha <!nocheck>
+ , node-assertion-error <!nocheck>
+ , node-browserify-lite
+ , node-type-detect
+ , uglifyjs
+Standards-Version: 4.6.0
+Vcs-Browser: https://salsa.debian.org/js-team/node-deep-eql
+Vcs-Git: https://salsa.debian.org/js-team/node-deep-eql.git
+Homepage: https://github.com/chaijs/deep-eql#readme
+Rules-Requires-Root: no
+
+Package: node-deep-eql
+Architecture: all
+Depends:
+ ${misc:Depends}
+ , node-type-detect
+Description: Improved deep equality testing for Node.js and the browser
+ Deep Eql is a module which you can use to determine if two
+ objects are "deeply" equal - that is, rather than having
+ referential equality (a === b), this module checks an
+ object's keys recursively, until it finds primitives to
+ check for referential equality. For more on equality in JavaScript,
+ read the comparison operators article on mdn.
+ .
+ Node.js is an event-based server-side JavaScript engine.
