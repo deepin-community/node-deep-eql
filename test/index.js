@@ -1,4 +1,5 @@
 'use strict';
+
 var assert = require('simple-assert');
 var eql = require('..');
 var MemoizeMap = require('..').MemoizeMap;
@@ -54,9 +55,9 @@ describe('Generic', function () {
 
     it('returns false for instances with different values', function () {
       assert(eql(new Boolean(false), new Boolean(true)) === false,
-      'eql(new Boolean(false), new Boolean(true)) === false');
+        'eql(new Boolean(false), new Boolean(true)) === false');
       assert(eql(new Boolean(true), new Boolean(false)) === false,
-      'eql(new Boolean(true), new Boolean(false)) === false');
+        'eql(new Boolean(true), new Boolean(false)) === false');
     });
 
     it('returns false for different values', function () {
@@ -376,6 +377,86 @@ describe('Generic', function () {
 
   });
 
+  describe('Symbols', function () {
+
+    it('returns true for same symbols', function () {
+      var symb = Symbol('a');
+      var objectA = { [symb]: 'a' };
+      var objectB = { [symb]: 'a' };
+      assert(eql(objectA, objectB) === true, 'eql(obj, obj)');
+    });
+
+    it('returns false for different values', function () {
+      var symb = Symbol('a');
+      var objectA = { [symb]: 'a' };
+      var objectB = { [symb]: 'b' };
+      assert(eql(objectA, objectB) === false, 'eql(obj, obj) === false');
+    });
+
+    it('returns false for different symbols', function () {
+      var symb = Symbol('a');
+      var symb2 = Symbol('b');
+      var objectA = { [symb]: 'a' };
+      var objectB = { [symb2]: 'a' };
+      assert(eql(objectA, objectB) === false, 'eql(obj, obj) === false');
+    });
+
+    it('returns true for same nested symbols', function () {
+      var symb = Symbol('a');
+      var symb2 = Symbol('b');
+      var objectA = { [symb]: { [symb2]: 'a' } };
+      var objectB = { [symb]: { [symb2]: 'a' } };
+      assert(eql(objectA, objectB) === true, 'eql(obj, obj)');
+    });
+
+    it('returns false for different nested symbols', function () {
+      var symb = Symbol('a');
+      var symb2 = Symbol('b');
+      var objectA = { [symb]: { [symb2]: 'a' } };
+      var objectB = { [symb]: { [symb]: 'a' } };
+      assert(eql(objectA, objectB) === false, 'eql(obj, obj) === false');
+    });
+
+    it('handles objects that have both symbol keys and string keys', function () {
+      var symb = Symbol('a');
+      var objectA = { [symb]: 'a', b: 2 };
+      var objectB = { [symb]: 'a', b: 2 };
+      assert(eql(objectA, objectB) === true, 'eql(obj, obj) === true');
+    });
+
+    it('works for multiple symbols', function () {
+      var symb = Symbol('a');
+      var symb2 = Symbol('a');
+      var objectA = { [symb]: 'a', [symb2]: 'b' };
+      var objectB = { [symb]: 'a', [symb2]: 'b' };
+      assert(eql(objectA, objectB) === true, 'eql(obj, obj)');
+
+      objectA = { [symb]: 'a', [symb2]: 'b' };
+      objectB = { [symb2]: 'b', [symb]: 'a' };
+      assert(eql(objectA, objectB) === true, 'eql(obj, obj)');
+
+      objectA = { [symb]: 'a', [symb2]: 'b' };
+      objectB = { [symb2]: 'a', [symb]: 'b' };
+      assert(eql(objectA, objectB) === false, 'eql(obj, obj) === false');
+
+      var symb3 = Symbol();
+      objectA = { [symb3]: 'a', [symb2]: 'b' };
+      objectB = { [symb3]: 'a', [symb2]: 'b' };
+      assert(eql(objectA, objectB) === true, 'eql(obj, obj)');
+    });
+
+    it('ignores non-enumerable symbols', function () {
+      var symb = Symbol('a');
+      var symb2 = Symbol('b');
+      var objectA = { [symb]: 'a' };
+      Object.defineProperty(objectA, symb2, { value: 'b', enumerable: false });
+      var objectB = { [symb]: 'a' };
+      Object.defineProperty(objectB, symb2, { value: 'c', enumerable: false });
+      assert(eql(objectA, objectB) === true, 'eql(obj, obj)');
+    });
+  });
+
+
   describe('errors', function () {
 
     it('returns true for same errors', function () {
@@ -450,12 +531,12 @@ describe('Node Specific', function () {
   describeIf(typeof Buffer === 'function')('buffers', function () {
 
     it('returns true for same buffers', function () {
-      assert(eql(new Buffer([ 1 ]), new Buffer([ 1 ])) === true,
+      assert(eql(Buffer.from([ 1 ]), Buffer.from([ 1 ])) === true,
         'eql(new Buffer([ 1 ]), new Buffer([ 1 ])) === true');
     });
 
     it('returns false for different buffers', function () {
-      assert(eql(new Buffer([ 1 ]), new Buffer([ 2 ])) === false,
+      assert(eql(Buffer.from([ 1 ]), Buffer.from([ 2 ])) === false,
         'eql(new Buffer([ 1 ]), new Buffer([ 2 ])) === false');
     });
 

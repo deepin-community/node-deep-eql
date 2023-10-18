@@ -13,7 +13,7 @@ Build-Depends:
  , node-browserify-lite
  , node-type-detect
  , uglifyjs
-Standards-Version: 4.6.0
+Standards-Version: 4.6.1
 Vcs-Browser: https://salsa.debian.org/js-team/node-deep-eql
 Vcs-Git: https://salsa.debian.org/js-team/node-deep-eql.git
 Homepage: https://github.com/chaijs/deep-eql#readme
@@ -24,6 +24,7 @@ Architecture: all
 Depends:
  ${misc:Depends}
  , node-type-detect
+Multi-Arch: foreign
 Description: Improved deep equality testing for Node.js and the browser
  Deep Eql is a module which you can use to determine if two
  objects are "deeply" equal - that is, rather than having
