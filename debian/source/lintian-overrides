@@ -1,0 +1,4 @@
+# Test modules
+source-is-missing \[debian/tests/test_modules/@js-temporal/polyfill/dist/index.esm.js\]
+source-contains-prebuilt-javascript-object \[debian/tests/test_modules/@js-temporal/polyfill/dist/index.esm.js\]
+very-long-line-length-in-source-file *debian/tests/test_modules/*

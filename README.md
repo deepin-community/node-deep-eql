@@ -1,38 +1,23 @@
 <h1 align=center>
   <a href="http://chaijs.com" title="Chai Documentation">
-    <img alt="ChaiJS" src="http://chaijs.com/img/chai-logo.png"/> deep-eql
+    <img alt="deep-eql" src="https://raw.githubusercontent.com/chaijs/deep-eql/main/deep-eql-logo.svg"/>
   </a>
 </h1>
 
 <p align=center>
-  Improved deep equality testing for [node](http://nodejs.org) and the browser.
+  Improved deep equality testing for <a href="http://nodejs.org/">node</a> and the browser.
 </p>
 
 <p align=center>
-  <a href="./LICENSE">
-    <img
-      alt="license:mit"
-      src="https://img.shields.io/badge/license-mit-green.svg?style=flat-square"
-    />
-  </a><a href="https://github.com/chaijs/deep-eql/releases">
-    <img
-      alt="tag:?"
-      src="https://img.shields.io/github/tag/chaijs/deep-eql.svg?style=flat-square"
-    />
-  </a><a href="https://travis-ci.org/chaijs/deep-eql">
+  <a href="https://github.com/chaijs/deep-eql/actions">
     <img
       alt="build:?"
-      src="https://img.shields.io/travis/chaijs/deep-eql/master.svg?style=flat-square"
+      src="https://github.com/chaijs/deep-eql/workflows/Build/badge.svg"
     />
   </a><a href="https://coveralls.io/r/chaijs/deep-eql">
     <img
       alt="coverage:?"
       src="https://img.shields.io/coveralls/chaijs/deep-eql/master.svg?style=flat-square"
-    />
-  </a><a href="https://www.npmjs.com/packages/deep-eql">
-    <img
-      alt="code quality:?"
-      src="https://img.shields.io/codacy/6de187aa62274dbea6e69a3c27e798da.svg?style=flat-square"
     />
   </a><a href="https://www.npmjs.com/packages/deep-eql">
     <img
@@ -43,18 +28,6 @@
     <img
       alt="devDependencies:?"
       src="https://img.shields.io/david/chaijs/deep-eql.svg?style=flat-square"
-    />
-  </a><a href="https://github.com/nodejs/LTS#lts-schedule1">
-    <img
-      alt="Supported Node Version: 4+"
-      src="https://img.shields.io/badge/node-4+-43853d.svg?style=flat-square"
-    />
-  </a>
-  <br/>
-  <a href="https://saucelabs.com/u/chaijs-deep-eql">
-    <img
-      alt="Selenium Test Status"
-      src="https://saucelabs.com/browser-matrix/chaijs-deep-eql.svg"
     />
   </a>
   <br>
